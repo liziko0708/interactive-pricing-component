@@ -1,4 +1,7 @@
 @media (min-width: 300px) {
+  .second {
+    display: none;
+  }
   .pattern:first-child {
     height: 400px;
   }
@@ -105,5 +108,18 @@
   }
   .billing-options {
     font-size: 12px;
+  }
+}
+@media (min-width: 1430px) {
+  .second {
+    display: block;
+    position: absolute;
+    top: 0;
+  }
+  html {
+    overflow: hidden;
+  }
+  body {
+    overflow: hidden;
   }
 }
