@@ -1,69 +1,90 @@
-// Change the billing opption
-const billingOptionButton = document.querySelector(".switch");
-const inMonthOrYear = document.querySelector(".price-in");
-
-billingOptionButton.addEventListener("click", () => {
-  billingOptionButton.classList.toggle("yearly");
-  if (billingOptionButton.classList.contains("yearly")) {
-    inMonthOrYear.innerHTML = "/ year";
+const range = document.getElementById("range");
+const monthlyPrice = document.getElementById("monthlyPrice");
+const pageViews = document.getElementById("pageviews-count");
+const switcher = document.getElementById("switcher");
+const month = document.getElementById("month");
+let clickButton = false;
+let rangeValue = 50;
+switcher.addEventListener("click", (event) => {
+  clickButton = !clickButton;
+  if (!clickButton) {
+    if (rangeValue >= 0 && rangeValue < 25) {
+      monthlyPrice.textContent = "$" + 10 + ".00";
+      month.textContent = "/month";
+    } else if (rangeValue >= 25 && rangeValue < 50) {
+      monthlyPrice.textContent = "$" + 12 + ".00";
+      month.textContent = "/month";
+    } else if (rangeValue >= 50 && rangeValue <= 70) {
+      monthlyPrice.textContent = "$" + 16 + ".00";
+      month.textContent = "/month";
+    } else if (rangeValue > 70 && rangeValue < 90) {
+      monthlyPrice.textContent = "$" + 20 + ".00";
+      month.textContent = "/month";
+    } else {
+      monthlyPrice.textContent = "$" + 25 + ".00";
+      month.textContent = "/month";
+    }
   } else {
-    inMonthOrYear.innerHTML = "/ month";
-  }
-});
-// Get the slider element and its container
-const slider = document.getElementById("slider");
-const sliderContainer = document.getElementById("slider-container");
-
-// Get the price elements
-const priceElement = document.getElementById("price");
-const priceRange = 32; // Maximum price
-
-// Variables to track mouse movements
-let isDragging = false;
-let offsetX = 0;
-
-// Function to update the price based on the slider position
-function updatePrice() {
-  // Calculate the percentage of the slider's position relative to its maximum range
-  const percentage =
-    (parseFloat(slider.style.left) /
-      (sliderContainer.offsetWidth - slider.offsetWidth)) *
-    100;
-
-  // Calculate the price based on the percentage
-  const newPrice = (percentage / 100) * priceRange;
-
-  // Update the displayed price
-  priceElement.innerHTML = `$${newPrice.toFixed(2)}`;
-}
-
-// Event listeners for mouse down, move, and up events
-slider.addEventListener("mousedown", (event) => {
-  isDragging = true;
-  offsetX = event.clientX - slider.getBoundingClientRect().left;
-});
-
-document.addEventListener("mousemove", (event) => {
-  if (isDragging) {
-    // Calculate the new position based on mouse movement
-    let newPosition =
-      event.clientX - offsetX - sliderContainer.getBoundingClientRect().left;
-
-    // Ensure the slider stays within the container boundaries
-    const minPosition = 0;
-    const maxPosition = sliderContainer.offsetWidth - slider.offsetWidth;
-
-    // Apply the new position within the boundaries
-    newPosition = Math.min(maxPosition, Math.max(minPosition, newPosition));
-
-    // Apply the new position
-    slider.style.left = newPosition + "px";
-
-    // Update the price when dragging
-    updatePrice();
+    if (rangeValue >= 0 && rangeValue < 25) {
+      monthlyPrice.textContent = "$" + 90;
+      month.textContent = "/year";
+    } else if (rangeValue >= 25 && rangeValue < 50) {
+      monthlyPrice.textContent = "$" + 108;
+      month.textContent = "/year";
+    } else if (rangeValue >= 50 && rangeValue <= 70) {
+      monthlyPrice.textContent = "$" + 144;
+      month.textContent = "/year";
+    } else if (rangeValue > 70 && rangeValue < 90) {
+      monthlyPrice.textContent = "$" + 180;
+      month.textContent = "/year";
+    } else {
+      monthlyPrice.textContent = "$" + 225;
+      month.textContent = "/year";
+    }
   }
 });
 
-document.addEventListener("mouseup", () => {
-  isDragging = false;
+range.addEventListener("input", (event) => {
+  range.style.backgroundSize = `${Number(event.target.value)}% 100%`;
+  if (!clickButton) {
+    if (event.target.value >= 0 && event.target.value < 25) {
+      monthlyPrice.textContent = "$" + 10 + ".00";
+      pageViews.textContent = 50 + "K Pageviews";
+    } else if (event.target.value >= 25 && event.target.value < 50) {
+      monthlyPrice.textContent = "$" + 12 + ".00";
+      pageViews.textContent = 75 + "K Pageviews";
+    } else if (event.target.value >= 50 && event.target.value <= 70) {
+      monthlyPrice.textContent = "$" + 16 + ".00";
+      pageViews.textContent = 100 + "K Pageviews";
+    } else if (event.target.value > 70 && event.target.value < 90) {
+      monthlyPrice.textContent = "$" + 20 + ".00";
+      pageViews.textContent = 150 + "K Pageviews";
+    } else {
+      monthlyPrice.textContent = "$" + 25 + ".00";
+      pageViews.textContent = 200 + "K Pageviews";
+    }
+  } else {
+    if (event.target.value >= 0 && event.target.value < 25) {
+      monthlyPrice.textContent = "$" + 90;
+      month.textContent = "/year";
+      pageViews.textContent = 50 + "K Pageviews";
+    } else if (event.target.value >= 25 && event.target.value < 50) {
+      monthlyPrice.textContent = "$" + 108;
+      month.textContent = "/year";
+      pageViews.textContent = 75 + "K Pageviews";
+    } else if (event.target.value >= 50 && event.target.value <= 70) {
+      monthlyPrice.textContent = "$" + 144;
+      month.textContent = "/year";
+      pageViews.textContent = 100 + "K Pageviews";
+    } else if (event.target.value > 70 && event.target.value < 90) {
+      monthlyPrice.textContent = "$" + 180;
+      month.textContent = "/year";
+      pageViews.textContent = 150 + "K Pageviews";
+    } else {
+      monthlyPrice.textContent = "$" + 225;
+      month.textContent = "/year";
+      pageViews.textContent = 200 + "K Pageviews";
+    }
+  }
+  rangeValue = event.target.value;
 });

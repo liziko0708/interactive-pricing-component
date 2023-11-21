@@ -3,93 +3,77 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pricing Component</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon-32x32.png" />
+    <title>Interactive pricing component</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="queries.css" />
-    <!-- used fonts "Manrope" -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@200;300;400;600;700;800;900&family=Manrope:wght@200;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body>
-    <section class="main-container">
-      <div class="pattern">
-        <img src="./assets/bg-pattern.svg" alt="big pattern svg" />
-        <img
-          class="second"
-          src="./assets/bg-pattern.svg"
-          alt="big pattern svg"
-        />
-        <img src="./assets/pattern-circles.svg" alt="circles for design" />
-      </div>
-      <div class="main-headers-section">
+    <div class="main-container">
+      <header>
         <h1>Simple, traffic-based pricing</h1>
-        <h2>Sign-up for our 30-day trial. No credit card required.</h2>
-      </div>
-    </section>
-    <section class="main-content-container">
-      <div class="padding-container">
-        <div class="views-and-price">
-          <div></div>
-          <div class="flex">
-            <div class="views-amd-price">
-              <div class="price-part">
-                <h3 id="price">$0.00</h3>
-                <p class="price-in">/ month</p>
-              </div>
-              <h3>100K PAGEVIEWS</h3>
-            </div>
-
-            <div class="price-regulator">
-              <hr />
-              <div id="slider-container">
-                <img id="slider" src="./assets/icon-slider.svg" />
-              </div>
-            </div>
+        <p>Sign-up for our 30-day trial. No credit card required.</p>
+      </header>
+      <div class="middle-container">
+        <div class="middles-header">
+          <p class="card__view" id="pageviews-count">100K Pageviews</p>
+          <input
+            type="range"
+            name="range"
+            step="25"
+            class="slider"
+            id="range"
+            aria-label="input"
+          />
+          <div class="price-month-boxs">
+            <span id="monthlyPrice">$16.00</span>
+            <span class="month" id="month">/month</span>
           </div>
         </div>
-        <div class="grid">
-          <div class="billing-options">
-            <p>Monthly Billing</p>
-            <label class="switch style-1">
-              <input type="checkbox" />
-              <div class="toggler-slider" id="switcher">
-                <div class="toggler-knob"></div>
-              </div>
-            </label>
-            <p>Yearly Billing</p>
-          </div>
-          <div class="discount">
-            <span class="short">-25%</span>
-            <span class="long">25% discount</span>
-          </div>
+        <div class="cards-and-discount-container">
+          <span class="billing text">Monthly Billing</span>
+          <label class="switch style-1">
+            <input type="checkbox" />
+            <div class="toggler-slider" id="switcher">
+              <div class="toggler-knob"></div>
+            </div>
+          </label>
+          <span class="yearly-billing text">Yearly Billing</span>
+          <span class="discount"
+            >-25%<span class="hidden-discount">discount</span></span
+          >
         </div>
-        <section class="footer">
-          <ul>
-            <li class="list-item">
-              <img src="./assets/icon-check.svg" alt="check sign" />
-              <span class="list-item-text">Unlimited websites</span>
-            </li>
-
-            <li class="list-item">
-              <img src="./assets/icon-check.svg" alt="check sign" />
-              <span class="list-item-text">100% data ownership </span>
-            </li>
-
-            <li class="list-item">
-              <img src="./assets/icon-check.svg" alt="check sign" />
-              <span class="list-item-text">Email reports</span>
-            </li>
-          </ul>
-          <button class="start-traial">
-            <span>Start my trial</span>
-          </button>
-        </section>
+        <hr />
+        <div class="footer">
+          <div class="list-of-benefits">
+            <span class="text"
+              ><img
+                class="img-arrow"
+                src="./assets/icon-check.svg"
+                alt="check-arrow"
+              />
+              Unlimited websites</span
+            >
+            <span class="text"
+              ><img
+                class="img-arrow"
+                src="./assets/icon-check.svg"
+                alt="check-arrow"
+              />
+              100% data ownership
+            </span>
+            <span class="text"
+              ><img
+                class="img-arrow"
+                src="./assets/icon-check.svg"
+                alt="check-arrow"
+              />
+              Email reports</span
+            >
+          </div>
+          <button class="trial-button">Start my trial</button>
+        </div>
       </div>
-    </section>
+    </div>
     <script src="main.js"></script>
   </body>
 </html>
