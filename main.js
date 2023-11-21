@@ -1,5 +1,5 @@
 // Change the billing opption
-const billingOptionButton = document.querySelector(".side-changing-button");
+const billingOptionButton = document.querySelector(".switch");
 const inMonthOrYear = document.querySelector(".price-in");
 
 billingOptionButton.addEventListener("click", () => {

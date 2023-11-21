@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pricing Component</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="queries.css" />
     <!-- used fonts "Manrope" -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,6 +18,11 @@
     <section class="main-container">
       <div class="pattern">
         <img src="./assets/bg-pattern.svg" alt="big pattern svg" />
+        <img
+          class="second"
+          src="./assets/bg-pattern.svg"
+          alt="big pattern svg"
+        />
         <img src="./assets/pattern-circles.svg" alt="circles for design" />
       </div>
       <div class="main-headers-section">
@@ -27,32 +33,38 @@
     <section class="main-content-container">
       <div class="padding-container">
         <div class="views-and-price">
-          <h3>100K PAGEVIEWS</h3>
-          <div class="price-part">
-            <h3 id="price">$0.00</h3>
-            <p class="price-in">/ month</p>
-          </div>
-        </div>
-        <div class="price-regulator">
-          <hr />
-          <div id="slider-container">
-            <img id="slider" src="./assets/icon-slider.svg" />
+          <div></div>
+          <div class="flex">
+            <div class="views-amd-price">
+              <div class="price-part">
+                <h3 id="price">$0.00</h3>
+                <p class="price-in">/ month</p>
+              </div>
+              <h3>100K PAGEVIEWS</h3>
+            </div>
+
+            <div class="price-regulator">
+              <hr />
+              <div id="slider-container">
+                <img id="slider" src="./assets/icon-slider.svg" />
+              </div>
+            </div>
           </div>
         </div>
         <div class="grid">
           <div class="billing-options">
             <p>Monthly Billing</p>
-            <div class="side-changing-button">
-              <img
-                class="side-changing-button"
-                src="./assets/side-changing-button.svg"
-                alt="button"
-              />
-            </div>
+            <label class="switch style-1">
+              <input type="checkbox" />
+              <div class="toggler-slider" id="switcher">
+                <div class="toggler-knob"></div>
+              </div>
+            </label>
             <p>Yearly Billing</p>
           </div>
           <div class="discount">
-            <span>25% discount</span>
+            <span class="short">-25%</span>
+            <span class="long">25% discount</span>
           </div>
         </div>
         <section class="footer">
